@@ -110,7 +110,7 @@ func whisperOss(file string) (string, error) {
 	if EXPORT_EXTENTION == "srt" {
 		format = "srt"
 	}
-	cmd := exec.Command("whisper", file, "--output_format", format, "--language", TRANSCRIPTION_LANGUAGE, "--model", "large")
+	cmd := exec.Command("whisper", file, "--output_format", format, "--language", TRANSCRIPTION_LANGUAGE, "--model", "large", "--output_dir", filepath.Dir(file))
 
 	err := cmd.Run()
 	if err != nil {
